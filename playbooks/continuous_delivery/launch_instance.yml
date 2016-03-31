@@ -63,6 +63,10 @@
       count: 1
       vpc_subnet_id: "{{ ec2_vpc_subnet_id }}"
       assign_public_ip: "{{ ec2_assign_public_ip }}"
+      volumes:
+        - device_name: /dev/xvda
+          volume_type: standard
+          volume_size: "{{ ebs_volume_size }}"
       wait: yes
       wait_timeout: "{{ ec2_timeout }}"
     delegate_to: "127.0.0.1"
